@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    background-color: #121212;
+    color: #fff;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    color: #008bff;
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-blue hover:bg-accent-blue-light text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    transform: scale(1.03);
+    background-color: #31c5f4;
+  }
+  .btn-secondary {
+    @apply bg-accent-blue hover:bg-accent-blue-light text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-secondary:hover, .btn-secondary:focus {
+    transform: scale(1.03);
+    background-color: #31c5f4;
+  }
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  .section-dark {
+    background-color: #121212;
+  }
+  .section-light {
+    background-color: #1e1e1e;
+  }
+  .modern-heading {
+    text-transform: uppercase;
+    color: #008bff;
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+  .modern-subheading {
+    text-transform: uppercase;
+    color: #31c5f4;
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+} 
