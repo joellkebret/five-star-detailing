@@ -164,7 +164,7 @@ const Home = () => {
               Car Detailing, Done Right.
             </motion.p>
             <motion.p
-              className="text-lg mb-8 text-white leading-relaxed"
+              className="text-lg mb-8 text-white leading-relaxed max-w-2x-4"
               style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.5)' }}
               variants={heroVariants}
             >
@@ -348,13 +348,13 @@ const Home = () => {
                   Need service outside our regular hours? Contact us for special arrangements.
                 </p>
                 <motion.a 
-                  href="mailto:fivestardetailingto@gmail.com" 
+                  href="tel:647-710-7247" 
                   className="btn-primary text-sm md:text-base px-4 py-2 md:px-6 md:py-3"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
-                  Email Us: fivestardetailingto@gmail.com
+                  Call Us: 647-710-7247
                 </motion.a>
               </div>
             </div>

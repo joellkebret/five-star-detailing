@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const BookingForm = () => {
@@ -22,6 +22,19 @@ const BookingForm = () => {
   const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', null
   const [submitMessage, setSubmitMessage] = useState('')
 
+  // Scroll to top when form is successfully submitted
+  useEffect(() => {
+    if (submitStatus === 'success' || submitStatus === 'error') {
+      const bookingSection = document.getElementById('booking')
+      if (bookingSection) {
+        bookingSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        })
+      }
+    }
+  }, [submitStatus])
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -30,40 +43,9 @@ const BookingForm = () => {
     }))
   }
 
+  // Remove all validation logic so the backend handles it
   const validateForm = () => {
-    const requiredFields = [
-      'fullName', 'phone', 'email', 'serviceAddress', 
-      'vehicleMake', 'vehicleModel', 'vehicleYear', 'vehicleType',
-      'preferredDate', 'preferredTime', 'selectedPackage', 'paymentMethod'
-    ]
-
-    const missingFields = requiredFields.filter(field => !formData[field])
-    if (missingFields.length > 0) {
-      return `Please fill in all required fields: ${missingFields.join(', ')}`
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) {
-      return 'Please enter a valid email address'
-    }
-
-    // Phone validation (basic)
-    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
-    const cleanPhone = formData.phone.replace(/[\s\-\(\)]/g, '')
-    if (!phoneRegex.test(cleanPhone)) {
-      return 'Please enter a valid phone number'
-    }
-
-    // Date validation
-    const selectedDate = new Date(formData.preferredDate)
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
-    if (selectedDate < today) {
-      return 'Please select a future date'
-    }
-
-    return null
+    return null;
   }
 
   const handleSubmit = async (e) => {
